@@ -27,10 +27,9 @@ public class NBodySimulation(Body[] bodies, double dt, double eps) : ISimulate
             for (int j = i + 1; j < _bodies.Length; j++)
             {
                 Body other = _bodies[j];
-                
-                distance = Math.Sqrt(Math.Pow(curr.Position.x - other.Position.x, 2) +
-                                     Math.Pow(curr.Position.y - other.Position.y, 2));
-                magnitude = distance < eps ? 0.0 : G * curr.Mass * other.Mass / Math.Pow(distance, 2);
+
+                distance = GetDistance(curr, other);
+                magnitude = distance < eps ? 0.0 : GetGravityMagnitude(curr.Mass, other.Mass, distance);
                 direction = GetDirection(curr, other);
 
                 curr.Force.x += magnitude * direction.x / distance;
@@ -48,20 +47,21 @@ public class NBodySimulation(Body[] bodies, double dt, double eps) : ISimulate
 
         for (int i = 0; i < _bodies.Length; i++)
         {
-            deltaV = GetDv(_bodies[i], _dt);
-            deltaP = GetDp(_bodies[i], _dt, deltaV);
+            Body curr = _bodies[i];
+            deltaV = GetDv(curr, _dt);
+            deltaP = GetDp(curr, _dt, deltaV);
 
-            _bodies[i].Velocity.x += deltaV.x;
-            _bodies[i].Velocity.y += deltaV.y;
-            _bodies[i].Position.x += deltaP.x;
-            _bodies[i].Position.y += deltaP.y;
+            curr.Velocity.x += deltaV.x;
+            curr.Velocity.y += deltaV.y;
+            curr.Position.x += deltaP.x;
+            curr.Position.y += deltaP.y;
 
             /*Console.WriteLine($"{i + 1} тело, {_bodies[i].Position.x}, {_bodies[i].Position.y}");
             if (i == 1)
             {
                 Console.WriteLine();
             }*/
-            _bodies[i].Force.x = _bodies[i].Force.y = 0.0;
+            curr.Force.x = curr.Force.y = 0.0;
         }
     }
 
@@ -84,5 +84,11 @@ public class NBodySimulation(Body[] bodies, double dt, double eps) : ISimulate
     {
         return new Point(other.Position.x - curr.Position.x,
             other.Position.y - curr.Position.y);
+    }
+
+    private static double GetDistance(Body curr, Body other)
+    {
+        return Math.Sqrt(Math.Pow(curr.Position.x - other.Position.x, 2) +
+                         Math.Pow(curr.Position.y - other.Position.y, 2));
     }
 }
