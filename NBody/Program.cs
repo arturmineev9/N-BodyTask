@@ -18,9 +18,12 @@ NBodySimulation nBodySimulation = new NBodySimulation(bodies, 1, 1);
 
 NBodySolver nBodySolver = new NBodySolver(bodiesCoords, nBodySettings);
 
-nBodySolver.RecalcBodiesCoords();
+
+for (int t = 0; t < 1000000; t = t + 1)
+{nBodySolver.RecalcBodiesCoords();}
+
 Console.WriteLine("done");
-nBodySimulation.Simulate(10000000);
+nBodySimulation.Simulate(1000000);
 Console.WriteLine($"{b1.Position.x}, {b1.Position.y}");
 Console.WriteLine($"{b2.Position.x}, {b2.Position.y}");
 
