@@ -7,11 +7,11 @@ public class Body
     public Point Force { get; set; }
     public double Mass { get; set; }
 
-    public Body(Point position, Point velocity, double mass)
+    public Body(Point position, double mass)
     {
         Position = new Point(position.x, position.y);
-        Velocity = new Point(velocity.x, velocity.y);
-        Force = new Point(0, 0);
+        Velocity = new Point(0.0, 0.0);
+        Force = new Point(0.0, 0.0);
         Mass = mass;
     }
 }
