@@ -8,10 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2609e5eb-1e3c-4aa7-8e00-518c381e7d42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NBody/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NBody/Helpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NBody/Helpers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NBody/ISimulate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NBody/SerialSolution/ISimulate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NBody/NBodySimulation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NBody/SerialSolution/NBodySimulation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NBody/Physics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NBody/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NBody/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NBody/NBodySolver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NBody/NBodySolver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NBody/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NBody/Program.cs" afterDir="false" />
     </list>
@@ -54,9 +52,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\Артур\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Артур\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Артур\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\serge\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\serge\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\serge\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -91,6 +89,7 @@
       <workItem from="1714720872013" duration="3717000" />
       <workItem from="1714733479072" duration="4597000" />
       <workItem from="1714738380250" duration="471000" />
+      <workItem from="1714758061638" duration="3014000" />
     </task>
     <servers />
   </component>
@@ -100,24 +99,5 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/NBody/Program.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Users\Артур\Documents\Git\N-BodyTask\NBody\Program.cs" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="238" />
-            </startOffsets>
-            <endOffsets>
-              <option value="301" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

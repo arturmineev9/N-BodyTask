@@ -20,9 +20,10 @@ Point p9 = new Point(random.Next(1, 100), random.Next(1, 100));
 Point p10 = new Point(random.Next(1, 100), random.Next(1, 100));
 
 
+
 Point[] bodiesCoords = new[] { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10};
 
-NBodySettings nBodySettings = new NBodySettings(1000, 1, 1e2, 2);
+NBodySettings nBodySettings = new NBodySettings(10000, 1, 1, 3);
 
 NBodySimulation nBodySimulation = new NBodySimulation(bodies, 1, 1);
 
@@ -53,9 +54,9 @@ stopwatch.Start();
 
 // Выводим затраченное время
 
-for (int t = 0; t < 10; t = t + 1)
+for (int t = 0; t < 100000; t = t + 1)
 {
-    nBodySolver.RecalculateBodiesCoords();
+    nBodySolver.CalculateBodiesCoords();
     //Console.WriteLine($"p1: {p1.x}, {p1.y}");
     //Console.WriteLine($"p2: {p2.x}, {p2.y}");
     Console.WriteLine();
