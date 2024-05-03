@@ -7,7 +7,7 @@ public class NBodySolver
 {
     private static Body[]? _bodies;
     private static int _dt;
-    private static readonly double _errorDistance = 5;
+    private static double _errorDistance;
 
     private readonly RecalcingCallable[] _recalcingCallables;
     private readonly MovingCallable[] _movingCallables;
@@ -25,13 +25,14 @@ public class NBodySolver
         }
 
         _dt = settings.DeltaTime;
-        //_errorDistance = settings.ErrorDistance;
+        _errorDistance = settings.ErrorDistance;
 
-        int[][] recalcingRanges = Helpers.Ranges(0, _bodies.Length - 2, settings.ThreadsNum);
-        int[][] movingRanges = Helpers.Ranges(1, _bodies.Length, settings.ThreadsNum);
-
+        int[][] recalcingRanges = Helpers.GetRanges(0, _bodies.Length - 2, settings.ThreadsNum);
+        int[][] movingRanges = Helpers.GetRanges(1, _bodies.Length, settings.ThreadsNum);
+        
         _recalcingCallables = new RecalcingCallable[recalcingRanges.Length];
         _movingCallables = new MovingCallable[movingRanges.Length];
+        
         for (int i = 0; i < recalcingRanges.Length; i++)
         {
             _recalcingCallables[i] = new RecalcingCallable(recalcingRanges[i][0], recalcingRanges[i][1]);
@@ -43,13 +44,13 @@ public class NBodySolver
         _movingTasks = new Task[settings.ThreadsNum];
     }
 
-    public int N() => _bodies.Length;
+    //public int N() => _bodies.Length;
     
-    public int BodyX(int index) => (int)_bodies[index].Position.x;
+    //public int BodyX(int index) => (int)_bodies[index].Position.x;
 
-    public int BodyY(int index) => (int)_bodies[index].Position.y;
+    //public int BodyY(int index) => (int)_bodies[index].Position.y;
 
-    public void RecalcBodiesCoords()
+    public void RecalculateBodiesCoords()
     {
         RecalculateBodiesForces();
         MoveNBodies();
@@ -91,7 +92,6 @@ public class NBodySolver
             double distance;
             double magnitude;
             Point direction;
-
             for (int k = leftIndex; k <= rightIndex; k++)
             {
                 for (int l = k + 1; l < _bodies.Length; l++)
@@ -140,7 +140,6 @@ public class NBodySolver
 
                 current.Position.x += deltaP.x;
                 current.Position.y += deltaP.y;
-
                 current.Force.x = current.Force.y = 0.0;
             }
         }
